@@ -1,0 +1,13 @@
+prefix=D:/GITHUB Projects/Document_portal/env/Library
+exec_prefix=D:/GITHUB Projects/Document_portal/env/Library
+libdir=D:/GITHUB Projects/Document_portal/env/Library/lib
+sharedlibdir=D:/GITHUB Projects/Document_portal/env/Library/lib
+includedir=D:/GITHUB Projects/Document_portal/env/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.3.1
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
