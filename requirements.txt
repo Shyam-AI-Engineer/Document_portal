@@ -4,7 +4,11 @@ ipykernel
 langchain_groq
 langchain_google_genai
 langchain-community
+langchain-huggingface
 langchain-core
 pypdf
 faiss-cpu
+sentence-transformers
+structlog
+PyMuPDF
 -e .
