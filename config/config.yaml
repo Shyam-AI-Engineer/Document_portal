@@ -3,7 +3,7 @@ faiss_db:
 
 
 embedding_model:
-  provider: "sentence-transformers"
+  provider: "huggingface"
   model_name: "sentence-transformers/all-MiniLM-L6-v2"
 
 retriever:
