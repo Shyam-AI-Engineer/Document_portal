@@ -50,10 +50,17 @@ class DocumentHandler:
             raise DocumentPortalException("Error saving PDF", e) from e
             
         
-    
-    def read_pdf(self):
+    def read_pdf(self, pdf_path:str)->str:
         try:
-            pass
+            text_chunks = []
+            with fitz.open(pdf_path) as doc:
+                for page_num, page in enumerate(doc, start=1):
+                    text_chunks.append(f"\n--- Page {page_num} ---\n{page.get_text()}")
+            text = "\n".join(text_chunks)
+            
+            self.log.info("PDF read successfully", pdf_path=pdf_path, session_id=self.session_id, pages=len(text_chunks))
+            return text
+                
         except Exception as e:
             self.log.error(f"Error reading PDF:{e}")
             raise DocumentPortalException("Error reading PDF", e) from e
@@ -79,5 +86,9 @@ if __name__ == "__main__":
     try:
         saved_path=handler.save_pdf(dummy_pdf)
         print(saved_path)
+        
+        content=handler.read_pdf(saved_path)  
+        print("PDF Content:")
+        print(content[:500])
     except Exception as e:
         print(f"Error: {e}")
