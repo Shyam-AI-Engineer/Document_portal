@@ -5,11 +5,12 @@ from datetime import datetime, timezone
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
+from utils.model_loader import ModelLoader
 from logger.custom_logger import CustomLogger
 from exception.custom_exception import DocumentPortalException
 
 class SingleDocIngestor:
-    def__init__(self,data_dir: str = "data/single_document_chat", faiss_dir: str = "faiss_index"):
+    def __init__(self,data_dir: str = "data/single_document_chat", faiss_dir: str = "faiss_index"):
         try:
             self.log = CustomLogger().get_logger(__name__)
             self.data_dir = Path(data_dir)
