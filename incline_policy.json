@@ -1,0 +1,17 @@
+{
+    "name of first policy":"AllowECSLogs",
+    "value of the first policy":{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "Statement1",
+			"Effect": "Allow",
+			"Action": [
+				"logs:CreateLogGroup",
+				"logs:CreateLogStream",
+				"logs:PutLogEvents"
+			],
+			"Resource": "*"
+		}
+	]
+},
